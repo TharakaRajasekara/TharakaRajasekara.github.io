@@ -257,13 +257,7 @@ footer h4{color:#fff;font-family:'Bricolage Grotesque';font-size:18px;margin-bot
 </div></section>
 
 <section class="xpf" id="pf" hidden><div class="wrap" id="pfw"></div></section>
-<section class="xcta2 dark"><div class="wrap"><div class="xbox">
-<div><span class="tag">For instructors</span><h2>Are you a licensed Zumba® <em>instructor?</em></h2><p class="lead">Join the Zumba® for Mental Wellness network and get listed here. Help more people across Sri Lanka move, breathe and reset.</p></div>
-<div class="xacts2">
-<a class="btn" href="mailto:tharakasewwandirajasekara@gmail.com?subject=Join%20the%20Zumba%20for%20Mental%20Wellness%20instructor%20network&amp;body=Name%3A%0ACity%3A%0AZIN%20%2F%20licence%20details%3A%0AClass%20types%3A%0APhone%20or%20WhatsApp%3A%0A">Apply to be listed &rarr;</a>
-<a class="btn o" href="https://www.zumba.com/en-US/search/classes" target="_blank" rel="noopener">Official Zumba® class finder &nearr;</a>
-<p class="xnote">Every instructor listed here holds a current Zumba® licence.</p>
-</div></div></div></section>
+
 
 <footer id="contact"><div class="wrap">
 <div class="fg"><div><a href="index.html" class="brand" style="color:#fff;display:inline-block;margin-bottom:14px">Zumba® for <span style="color:var(--lime)">Mental Wellness</span> · Sri Lanka</a><p>Founded and led by Tharaka Rajasekara, licensed Zumba® instructor and researcher, University of Peradeniya, Sri Lanka.</p></div>
@@ -299,14 +293,14 @@ const ini=n=>n.replace(/^(Mr|Ms|Mrs|Dr)\.?\s+/,'').split(/\s+/).map(w=>w[0]).sli
 [...new Set(INSTRUCTORS.map(i=>i.city))].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;$('city').appendChild(o)});
 function draw(){const q=$('q').value.trim().toLowerCase(),c=$('city').value;
  const r=INSTRUCTORS.filter(i=>(!c||i.city===c)&&(!q||(i.name+' '+i.city+' '+i.where+' '+i.types.join(' ')).toLowerCase().includes(q)));
- $('grid').innerHTML=r.map(i=>`<article class="xic" onclick="if(!event.target.closest('a'))location.href='${i.id}.html'"><div class="xic-top">${i.photo?`<img class="xic-av" src="${i.photo}" alt="${i.name}">`:`<div class="xic-av">${ini(i.name)}</div>`}<div><h3>${i.name}</h3><div class="xrole">${i.role}</div><span class="xbadge">&#10003; Licensed</span></div></div><ul><li>${pin}<span>${i.city}</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><span>${i.where}</span></li></ul><div class="xchips">${i.types.map(t=>`<span>${t}</span>`).join('')}</div><a class="btn" href="${i.id}.html">View profile &rarr;</a></article>`).join('')+(!q&&!c?`<div class="xsoon"><b>More instructors coming soon</b><span>We're growing the network across Sri Lanka.</span><a href="#" onclick="document.querySelector('.xcta2').scrollIntoView({behavior:'smooth'});return false" style="font-weight:700;text-decoration:underline;color:var(--g2)">Become an instructor &rarr;</a></div>`:'');
+ $('grid').innerHTML=r.map(i=>`<article class="xic" onclick="if(!event.target.closest('a'))location.href='${i.id}.html'"><div class="xic-top">${i.photo?`<img class="xic-av" src="${i.photo}" alt="${i.name}">`:`<div class="xic-av">${ini(i.name)}</div>`}<div><h3>${i.name}</h3><div class="xrole">${i.role}</div><span class="xbadge">&#10003; Licensed</span></div></div><ul><li>${pin}<span>${i.city}</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><span>${i.where}</span></li></ul><div class="xchips">${i.types.map(t=>`<span>${t}</span>`).join('')}</div><a class="btn" href="${i.id}.html">View profile &rarr;</a></article>`).join('')+(!q&&!c?`<div class="xsoon"><b>More instructors coming soon</b><span>We're growing the network across Sri Lanka.</span></div>`:'');
  $('count').textContent=r.length+(r.length===1?' instructor':' instructors')+(c?' in '+c:'');
  $('empty').style.display=r.length?'none':'block';}
 $('q').addEventListener('input',draw);$('city').addEventListener('change',draw);draw();
 document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>$('lk').classList.remove('open')));
 
 function show(){const id=window.FORCE_ID||decodeURIComponent(location.hash.slice(1));const i=INSTRUCTORS.find(x=>x.id===id);
- const list=[document.querySelector('.xih'),document.querySelector('.xlist'),document.querySelector('.xcta2')];
+ const list=[document.querySelector('.xih'),document.querySelector('.xlist')].filter(Boolean);
  if(!i){list.forEach(e=>e.hidden=false);$('pf').hidden=true;document.title=BASE_TITLE;return}
  list.forEach(e=>e.hidden=true);$('pf').hidden=false;document.title=i.name+' | Zumba® Instructor · Sri Lanka';
  const k=INSTRUCTORS.indexOf(i),prev=INSTRUCTORS[(k-1+INSTRUCTORS.length)%INSTRUCTORS.length],next=INSTRUCTORS[(k+1)%INSTRUCTORS.length];
