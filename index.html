@@ -234,10 +234,9 @@ footer h4{color:#fff;font-family:'Bricolage Grotesque';font-size:18px;margin-bot
 <section id="schedule"><div class="wrap">
 <div class="c rv"><span class="tag">Weekly schedule</span><h2>Free <em>hostel sessions</em></h2><p class="uop">&#128205; University of Peradeniya, Sri Lanka</p><p class="lead">Three evenings, six University of Peradeniya hostels, zero cost. Just turn up, dance and leave feeling lighter. All students are welcome.</p></div>
 <div class="g3">
-<div class="dy rv" data-dow="1"><span class="tn">Tonight!</span><div class="top"><div><div class="sh">MON</div><div class="fu">Monday</div></div><span class="fr">FREE</span></div><div class="bd"><div class="tm">🕕 6:00 – 7:00 pm</div><div class="ho">Sarachchandra Hostel</div><div class="ho">Malalasekara Hostel</div></div></div>
-<div class="dy rv" data-dow="2"><span class="tn">Tonight!</span><div class="top"><div><div class="sh">TUE</div><div class="fu">Tuesday</div></div><span class="fr">FREE</span></div><div class="bd"><div class="tm">🕕 6:00 – 7:00 pm</div><div class="ho">Sangamitta Hostel</div><div class="ho">Hilda Hostel</div></div></div>
-<!-- EDIT: replace "Time TBA" with the Wednesday time -->
-<div class="dy rv" data-dow="3"><span class="tn">Tonight!</span><div class="top"><div><div class="sh">WED</div><div class="fu">Wednesday</div></div><span class="fr">FREE</span></div><div class="bd"><div class="tm">🕕 6:00 – 7:00 pm</div><div class="ho">Ramanathan Hostel</div><div class="ho">Sarasavi Madura Hostel</div></div></div>
+<div class="dy rv" data-dow="1"><div class="top"><div><div class="sh">MON</div><div class="fu">Monday</div></div><span class="fr">FREE</span></div><div class="bd"><div class="tm">🕕 6:00 – 7:00 pm</div><div class="ho">Sarachchandra Hostel</div><div class="ho">Malalasekara Hostel</div></div></div>
+<div class="dy rv" data-dow="2"><div class="top"><div><div class="sh">TUE</div><div class="fu">Tuesday</div></div><span class="fr">FREE</span></div><div class="bd"><div class="tm">🕕 6:00 – 7:00 pm</div><div class="ho">Sangamitta Hostel</div><div class="ho">Hilda Hostel</div></div></div>
+<div class="dy rv" data-dow="3"><div class="top"><div><div class="sh">WED</div><div class="fu">Wednesday</div></div><span class="fr">FREE</span></div><div class="bd"><div class="tm">🕕 6:00 – 7:00 pm</div><div class="ho">Ramanathan Hostel</div><div class="ho">Sarasavi Madura Hostel</div></div></div>
 </div>
 <div class="br rv"><b>What to bring</b><span>💧 Water bottle</span><span>👟 Comfortable shoes</span><span>👕 Light clothes</span><span>😀 A smile</span></div>
 <p class="nt c">Schedules can change during exams and vacations. Follow us for updates.</p>
@@ -268,7 +267,6 @@ footer h4{color:#fff;font-family:'Bricolage Grotesque';font-size:18px;margin-bot
 const $=id=>document.getElementById(id);
 $('yr').textContent=new Date().getFullYear();
 document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>$('lk').classList.remove('open')));
-const td=new Date().getDay();document.querySelectorAll('.dy[data-dow]').forEach(d=>{if(+d.dataset.dow===td)d.classList.add('now')});
 const io='IntersectionObserver'in window?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1}):null;
 document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
 </script></body></html>
